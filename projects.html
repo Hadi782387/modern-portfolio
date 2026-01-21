@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Siddiqui | Projects</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Google Fonts (same as others) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo">Siddiqui</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="hamburger">☰</div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Projects Section -->
+    <section class="projects-section">
+      <h2 class="section-title">My Projects</h2>
+      <p class="section-subtitle">Here are some of my favorite works — from full-stack apps to creative tools. Hover to see more!</p>
+
+      <div class="projects-grid">
+        
+        <!-- Project Card 1 -->
+        <div class="project-card">
+          <div class="project-image-wrapper">
+            <img src="assets/images/project1.jpg" alt="Project 1" class="project-image">
+          </div>
+          <div class="project-content">
+            <h3>E-Commerce Dashboard</h3>
+            <p>Full-stack admin panel with real-time analytics, product management, and user auth using Next.js & Firebase.</p>
+            <div class="tech-tags">
+              <span>Next.js</span>
+              <span>Tailwind</span>
+              <span>Express.js</span>
+              <span>Node.js</span>
+            </div>
+            <div class="project-links">
+              <a href="https://demo-link.com" target="_blank" class="btn primary small">Live Demo</a>
+              <a href="https://github.com/yourusername/ecom-dashboard" target="_blank" class="btn outline small">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Card 2 -->
+        <div class="project-card">
+          <div class="project-image-wrapper">
+            <img src="assets/images/project2.jpg" alt="Project 2" class="project-image">
+          </div>
+          <div class="project-content">
+            <h3>Task Manager App</h3>
+            <p>Kanban-style productivity tool with drag-drop, dark mode, teams collaboration using React & Supabase.</p>
+            <div class="tech-tags">
+              <span>React</span>
+              <span>Tailwind</span>
+              <span>Drag & Drop</span>
+              <span>JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://taskmanager-demo.vercel.app" target="_blank" class="btn primary small">Live Demo</a>
+              <a href="https://github.com/yourusername/task-manager" target="_blank" class="btn outline small">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Card 3 -->
+        <div class="project-card">
+          <div class="project-image-wrapper">
+            <img src="assets/images/project3.jpg" alt="Project 3" class="project-image">
+          </div>
+          <div class="project-content">
+            <h3>Portfolio Website (This One!)</h3>
+            <p>Personal multi-page portfolio with dark theme, responsive design, and smooth interactions — built from scratch.</p>
+            <div class="tech-tags">
+              <span>HTML/CSS</span>
+              <span>JavaScript</span>
+              <span>Responsive</span>
+              <span>Dark Mode</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn primary small">Live Demo</a>
+              <a href="https://github.com/yourusername/portfolio" target="_blank" class="btn outline small">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Card 4 (add more as needed) -->
+        <div class="project-card">
+          <div class="project-image-wrapper">
+            <img src="assets/images/project4.jpg" alt="Project 4" class="project-image">
+          </div>
+          <div class="project-content">
+            <h3>Weather Dashboard</h3>
+            <p>Real-time weather app with forecasts, location search, and beautiful visualizations using OpenWeather API.</p>
+            <div class="tech-tags">
+              <span>React</span>
+              <span>API Integration</span>
+              <span>Tailwind</span>
+            </div>
+            <div class="project-links">
+              <a href="https://weather-demo.vercel.app" target="_blank" class="btn primary small">Live Demo</a>
+              <a href="https://github.com/yourusername/weather-app" target="_blank" class="btn outline small">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Siddiqui. Built in Mumbai with passion.</p>
+  </footer>
+
+  <!-- Hamburger JS -->
+  <script>
+    document.querySelector('.hamburger').addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
+  </script>
+
+  <!-- Projects specific minor CSS -->
+  <style>
+    .projects-section {
+      padding: 8rem 5% 6rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.3rem;
+      color: var(--text-secondary);
+      margin-bottom: 4rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 25px 70px rgba(0, 212, 255, 0.22);
+      border-color: var(--accent);
+    }
+
+    .project-image-wrapper {
+      height: 220px;
+      overflow: hidden;
+    }
+
+    .project-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover .project-image {
+      transform: scale(1.08);
+    }
+
+    .project-content {
+      padding: 1.8rem;
+    }
+
+    .project-content h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .project-content p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.2rem;
+      min-height: 60px; /* consistent height */
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tech-tags span {
+      background: rgba(0, 212, 255, 0.1);
+      color: var(--accent);
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn.small {
+      padding: 0.7rem 1.4rem;
+      font-size: 0.95rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .projects-section {
+        padding: 7rem 5% 5rem;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+
+</body>
+</html>

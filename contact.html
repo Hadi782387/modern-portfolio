@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Siddiqui | Contact</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Google Fonts same as others -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo">Siddiqui</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+      <div class="hamburger">☰</div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Contact Section -->
+    <section class="contact-section">
+      <div class="contact-container">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Have a project in mind? Drop a message — I'll get back to you ASAP!</p>
+
+        <form id="contact-form" class="contact-form">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" placeholder="Tell me more..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn primary" id="submit-btn">Send Message</button>
+        </form>
+
+        <div id="form-status" class="form-status"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Siddiqui. Let's connect in Mumbai or online!</p>
+  </footer>
+
+  <!-- Hamburger JS -->
+  <script>
+    document.querySelector('.hamburger').addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
+  </script>
+
+  <!-- EmailJS Initialization & Form Handling -->
+  <!-- EmailJS Initialization & Form Handling - Updated for new template -->
+<script>
+  // Tere real EmailJS details (jo tune screenshot mein diye the)
+  const PUBLIC_KEY     = 'j7-4Dqp71-qLHU560';   // Yeh public key hai
+  const SERVICE_ID     = 'service_q9ev95a';      // Service ID
+  const TEMPLATE_ID    = 'template_v24kpqe';     // Template ID (dashboard se confirm kar lena exact, screenshot mein 'temptalte_we32w69' likha tha lekin real mein template_ prefix hota hai)
+
+  // EmailJS ko initialize karo
+  emailjs.init(PUBLIC_KEY);
+
+  // Form elements select karo
+  const form          = document.getElementById('contact-form');
+  const statusDiv     = document.getElementById('form-status');
+  const submitBtn     = document.getElementById('submit-btn');
+
+  // Form submit event listener
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();  // Page reload na ho
+
+    // Button ko loading state mein daalo
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    // Form data object banao (placeholders se exact match karna chahiye template mein)
+    const formData = {
+      name:    document.getElementById('name').value.trim(),
+      email:   document.getElementById('email').value.trim(),
+      subject: document.getElementById('subject').value.trim(),
+      message: document.getElementById('message').value.trim(),
+      // Optional: agar template mein time/date chahiye toh add kar sakta hai
+      // time: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+    };
+
+    // Email bhejo using send (object way - recommended for custom control)
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, formData)
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+        statusDiv.innerHTML = '<p style="color: var(--accent); font-weight: 600;">Message sent successfully! 🎉 I\'ll reply soon.</p>';
+        form.reset();  // Form clear kar do
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      })
+      .catch((err) => {
+        console.error('EmailJS failed:', err);
+        statusDiv.innerHTML = '<p style="color: #ff6b6b; font-weight: 600;">Oops! Failed to send. Try again or email me directly at siddiquiarafat391@gmail.com</p>';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      });
+  });
+</script>
+
+  <!-- Contact page specific minor CSS -->
+  <style>
+    .contact-section {
+      padding: 8rem 5% 6rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .contact-container {
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .section-subtitle {
+      font-size: 1.3rem;
+      color: var(--text-secondary);
+      margin-bottom: 3rem;
+    }
+
+    .contact-form {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 40px rgba(0, 212, 255, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 1.8rem;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.6rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg-secondary);
+      color: var(--text);
+      font-size: 1.05rem;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.15);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+    }
+
+    .btn.primary {
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+    }
+
+    .form-status {
+      margin-top: 1.5rem;
+      min-height: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .contact-section {
+        padding: 7rem 5% 5rem;
+      }
+
+      .contact-form {
+        padding: 2rem;
+      }
+    }
+  </style>
+
+</body>
+</html>

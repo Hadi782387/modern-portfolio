@@ -1,0 +1,289 @@
+:root {
+  --bg: #0f0f17;
+  --bg-secondary: #161b22;
+  --text: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --accent: #00d4ff;     /* cyan/neon */
+  --accent-dark: #0099cc;
+  --card: #1a1f2e;
+  --border: #2a3443;
+}
+
+[data-theme="dark"] {
+  background: var(--bg);
+  color: var(--text);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Header */
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  background: rgba(15, 15, 23, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 5%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent);
+}
+
+/* Mobile menu (simple toggle) */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Main content padding (header ke niche) */
+main {
+  padding: 120px 5% 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Cards (projects/about ke liye) */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.8rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 212, 255, 0.12);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 3rem 0;
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    padding: 2rem;
+    border-top: 1px solid var(--border);
+  }
+  
+  .nav-links.active {
+    display: flex;
+  }
+  
+  .hamburger {
+    display: block;
+  }
+}
+ 
+/* =============================================
+   HERO SECTION ONLY - Minimal gap from nav
+   ============================================= */
+
+.hero {
+  min-height: calc(100vh - 80px);           /* header ~80px assume karke, adjust kar sakta hai */
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 5% 6rem;                  /* top padding bahut kam → sirf breathing space */
+  background: var(--bg);
+  margin-top: 0;                            /* extra margin nahi */
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.hero-left {
+  padding-right: 1.5rem;
+}
+
+.hero-left h1 {
+  font-size: 4.4rem;
+  font-weight: 700;
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+
+.hero-left .highlight {
+  color: var(--accent);
+}
+
+.hero-left .lead {
+  font-size: 1.6rem;
+  color: var(--text);
+  margin-bottom: 0.8rem;
+}
+
+.hero-left .sub-lead {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+}
+
+.btn-group {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 1rem 2.2rem;
+  border-radius: 50px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #000;
+  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+}
+
+.btn.primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 45px rgba(0, 212, 255, 0.3);
+}
+
+.btn.outline {
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
+}
+
+.btn.outline:hover {
+  background: var(--accent);
+  color: #000;
+  transform: translateY(-4px);
+}
+
+/* Right side image */
+.hero-right {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image-wrapper {
+  max-width: 450px;
+  width: 100%;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 60px rgba(0, 212, 255, 0.18);
+  transition: all 0.4s ease;
+}
+
+.hero-image:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 30px 80px rgba(0, 212, 255, 0.28);
+}
+
+/* Mobile responsive - stack + center */
+@media (max-width: 992px) {
+  .hero {
+    padding: 7rem 5% 6rem;               /* mobile pe thoda zyada top space taaki header overlap na kare */
+    min-height: auto;
+  }
+  
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 4.5rem;
+  }
+  
+  .hero-left {
+    text-align: center;
+    padding: 0;
+  }
+  
+  .btn-group {
+    justify-content: center;
+  }
+  
+  .hero-image-wrapper {
+    max-width: 380px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-left h1 {
+    font-size: 3.2rem;
+  }
+  
+  .hero-left .lead {
+    font-size: 1.4rem;
+  }
+  
+  .hero {
+    padding-top: 6rem;                   /* chhote screen pe aur kam gap */
+  }
+}

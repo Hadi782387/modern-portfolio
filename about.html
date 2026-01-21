@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Siddiqui | About</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Google Fonts (same as home) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo">Siddiqui</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="hamburger">☰</div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- About Intro Section -->
+    <section class="about-section">
+      <div class="about-container">
+        <div class="about-content">
+          <h1>About <span class="highlight">Me</span></h1>
+          <p class="lead">Full Stack Developer from Mumbai, passionate about building clean, performant, and user-focused web applications.</p>
+          <p>I enjoy turning complex problems into simple, elegant solutions using modern technologies. Whether it's crafting pixel-perfect UIs or architecting scalable backends, I love the process from idea to deployment.</p>
+          <p>Currently exploring Next.js, TypeScript, and cloud-native development while freelancing and working on personal projects.</p>
+        </div>
+
+        <div class="about-image-wrapper">
+          <img 
+            src="assets/images/yaseen.jpeg" 
+            alt="Siddiqui" 
+            class="about-image"
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section with Cards -->
+    <section class="skills-section">
+      <h2 class="section-title">My Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon">⚡</div>
+          <h3>Frontend</h3>
+          <p>HTML5 • CSS3 • JavaScript • React • Next.js • Tailwind CSS • Redux</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">🛠️</div>
+          <h3>Backend</h3>
+          <p>Node.js • Express.js • MongoDB • PostgreSQL • REST & GraphQL APIs</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">🚀</div>
+          <h3>Tools & DevOps</h3>
+          <p>Git • GitHub • Docker • Vercel • AWS basics • CI/CD • VS Code</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">🎨</div>
+          <h3>Design & Others</h3>
+          <p>Figma • UI/UX Principles • Dark Mode Design • Responsive Web • SEO basics</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Journey / Experience (simple version) -->
+    <section class="journey-section">
+      <h2 class="section-title">My Journey</h2>
+      <div class="journey-timeline">
+        <div class="journey-item">
+          <div class="journey-year">2026 – Present</div>
+          <h3>Freelance Full Stack Developer</h3>
+          <p>Building custom web solutions for clients, focusing on performance and modern stack.</p>
+        </div>
+
+        <div class="journey-item">
+          <div class="journey-year">2025 – 2026</div>
+          <h3>Full Stack Developer @ [Cisco Metal & Alloys]</h3>
+          <p>Worked on React-based applications, collaborated with design & backend teams.</p>
+        </div>
+
+        <div class="journey-item">
+          <div class="journey-year">Self-Taught Start</div>
+          <h3>From Zero to Code</h3>
+          <p>Started with free resources, built first projects, fell in love with web development.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Siddiqui. Crafted in Mumbai with Standard Web technologies</p>
+  </footer>
+
+  <!-- Hamburger JS (same as before) -->
+  <script>
+    document.querySelector('.hamburger').addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
+  </script>
+
+  <!-- Skills section ke liye minor internal CSS -->
+  <style>
+    .about-section {
+      padding: 8rem 5% 6rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .about-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-content h1 {
+      font-size: 3.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-content .lead {
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+      color: var(--text);
+    }
+
+    .about-content p {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.2rem;
+      max-width: 85%;
+    }
+
+    .about-image-wrapper {
+      text-align: center;
+    }
+
+    .about-image {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 60px rgba(0, 212, 255, 0.15);
+      transition: transform 0.4s ease;
+    }
+
+    .about-image:hover {
+      transform: translateY(-10px);
+    }
+
+    .skills-section {
+      padding: 4rem 5%;
+      background: var(--bg-secondary);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 3.5rem;
+      color: var(--accent);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem 1.8rem;
+      text-align: center;
+      transition: all 0.35s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0, 212, 255, 0.18);
+      border-color: var(--accent);
+    }
+
+    .skill-icon {
+      font-size: 3.2rem;
+      margin-bottom: 1.2rem;
+      color: var(--accent);
+    }
+
+    .skill-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .skill-card p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+    }
+
+    .journey-section {
+      padding: 4rem 5%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .journey-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .journey-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    .journey-year {
+      color: var(--accent);
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+
+    .journey-item h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .journey-item p {
+      color: var(--text-secondary);
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .about-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .about-content {
+        text-align: center;
+      }
+
+      .about-content p {
+        max-width: 100%;
+        margin: 0 auto 1.2rem;
+      }
+
+      .about-image {
+        max-width: 360px;
+      }
+    }
+  </style>
+
+</body>
+</html>
